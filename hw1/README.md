@@ -7,8 +7,8 @@ Images
 1. Main activity
    ![Image 1 Title](images/main.jpg)
 
-2. Pizza detail activity
+2. Search feature
    ![Image 2 Title](images/detail.jpg)
 
-3. Search feature
+3. Pizza detail activity
    ![Image 3 Title](images/search.jpg)
