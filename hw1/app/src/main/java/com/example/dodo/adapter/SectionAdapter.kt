@@ -9,15 +9,15 @@ import com.example.dodo.models.SelectionItem
 import com.example.dodo.databinding.ItemPizzaLayoutBinding
 import com.example.dodo.databinding.ItemBannerLayoutBinding
 
-class SelectionAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SectionAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     lateinit var didTapPizza: (PizzaModel) -> Unit
 
-    private val selection: ArrayList<SelectionItem> = ArrayList()
+    private val section: ArrayList<SelectionItem> = ArrayList()
 
-    fun setSelections(newList: ArrayList<SelectionItem>){
-        selection.clear()
-        selection.addAll(newList)
+    fun setSections(newList: ArrayList<SelectionItem>){
+        section.clear()
+        section.addAll(newList)
         notifyDataSetChanged()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -34,7 +34,7 @@ class SelectionAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             SelectionItem.Type.Banner.ordinal -> {
                 return BannerViewHolder(
                     ItemBannerLayoutBinding.inflate(
-                        android.view.LayoutInflater.from(parent.context),
+                        LayoutInflater.from(parent.context),
                         parent,
                         false
                     )
@@ -43,7 +43,7 @@ class SelectionAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             else -> {
                 return PizzaViewHolder(
                     ItemPizzaLayoutBinding.inflate(
-                        android.view.LayoutInflater.from(parent.context),
+                        LayoutInflater.from(parent.context),
                         parent,
                         false
                     )
@@ -53,17 +53,17 @@ class SelectionAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemViewType(position: Int): Int {
-        return selection[position].getListItem()
+        return section[position].getListItem()
     }
 
     override fun getItemCount(): Int {
-        return selection.size
+        return section.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
-            is ItemPizzaLayoutBinding -> holder.bind(selection[position] as PizzaModel)
-            is ItemBannerLayoutBinding -> holder.bind(selection[position] as BannerModel)
+            is PizzaViewHolder -> holder.bind(section[position] as PizzaModel)
+            is BannerViewHolder -> holder.bind(section[position] as BannerModel)
         }
     }
 
@@ -87,11 +87,11 @@ class SelectionAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 pizzaImage.setImageResource(pizza.image)
                 pizzaTitle.text = pizza.title
                 pizzaDescription.text = pizza.description
-                pizzaPrice.text = pizza.price
+                pizzaPrice.text = "${pizza.price} T"
 
-                root.setOnClickListener(
+                root.setOnClickListener {
                     didTapPizza(pizza)
-                )
+                }
             }
         }
     }
