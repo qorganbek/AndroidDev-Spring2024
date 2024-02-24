@@ -19,6 +19,7 @@ class PizzaDetailActivity: AppCompatActivity() {
         binding.imageView.setImageResource(pizza.image)
         binding.description.text = pizza.description
         binding.title.text = pizza.title
+        binding.price.text = "${pizza.price}"
     }
 
 }

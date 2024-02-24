@@ -75,6 +75,7 @@ class SectionAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 bannerImage.setImageResource(banner.image)
                 bannerDescription.text = banner.description
                 bannerTitle.text =  banner.title
+
             }
         }
     }
