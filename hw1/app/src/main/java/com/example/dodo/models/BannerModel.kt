@@ -10,4 +10,4 @@ data class BannerModel(
     override fun getListItem(): Int {
         return SelectionItem.Type.Banner.ordinal
     }
-    }
+}
