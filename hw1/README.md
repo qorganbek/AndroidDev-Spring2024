@@ -5,10 +5,10 @@ Images
 
 ## Images
 1. Main activity  
-   ![Image 1 Title](images/main.jpg){:width="400px" height="300px"}
+   <img src="images/main.jpg" width="400" height="300">
 
 2. Pizza detail activity  
-   ![Image 2 Title](images/detail.jpg){:width="400px" height="300px"}
+   <img src="images/detail.jpg" width="400" height="300">
 
 3. Search feature  
-   ![Image 3 Title](images/search.jpg){:width="400px" height="300px"}
+   <img src="images/search.jpg" width="400" height="300">
